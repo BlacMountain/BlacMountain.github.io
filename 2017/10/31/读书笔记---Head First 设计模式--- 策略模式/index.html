@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        黑山有清水的小屋
+        读书笔记---Head First 设计模式--- 策略模式 · 黑山有清水的小屋
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -63,7 +63,7 @@
                 <a href="/" >黑山有清水的小屋.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name"></a>
+                <a href="#" class="post-name">读书笔记---Head First 设计模式--- 策略模式</a>
             </div>
     </div>
     
@@ -84,7 +84,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            [Untitled Post]
+            读书笔记---Head First 设计模式--- 策略模式
             <!-- 404 -->
             
         </h1>
@@ -177,15 +177,14 @@
 <hr>
 <p>稍微介绍一下这本书，我还没有看完，按照我的理解这本书主要讲的是关于类的设计，它没有按照一般教材书那样中规中矩的展现知识，而是用一种引导的方式慢慢的让你理解它的知识。好处是当你刚开始学的时候，会很方便给你理解，但是到你重复学习的时候，可能就会有一丝厌烦了。关于书的信息就介绍到这里，让我来进入正题。</p>
 <hr>
-<p>###策略模式</p>
-<blockquote>
+<h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><blockquote>
 <p>策略模式——定义算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户。</p>
 </blockquote>
 <p>正如上面所写的，策略模式其实是一个我们很常用的模式，也许我说多态性你们会更容易懂。它的本质就是利用多态性，将各种算法封装成一个个单独的类，并拥有共同的父类。主类通过包含此父类达到让主类的子类能够自由改变自己的行为，也就是让算法的变化独立于使用算法的客户。<br>不多说了，上代码。</p>
 <hr>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">abstract <span class="class"><span class="keyword">class</span> <span class="title">Tyre</span> &#123;</span></div><div class="line">	abstract void run();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rockettyre</span> <span class="title">extends</span> <span class="title">Tyre</span> &#123;</span></div><div class="line"></div><div class="line">	@Override</div><div class="line">	void run() &#123;</div><div class="line">		/<span class="regexp">/ TODO Auto-generated method stub</span></div><div class="line"><span class="regexp">		System.out.println("jiu~ jiu~ jiu~");</span></div><div class="line"><span class="regexp">	&#125;</span></div><div class="line"><span class="regexp">	</span></div><div class="line"><span class="regexp">&#125;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">class Simpletyre extends Tyre &#123;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">	@Override</span></div><div class="line"><span class="regexp">	void run() &#123;</span></div><div class="line"><span class="regexp">		/</span><span class="regexp">/ TODO Auto-generated method stub</span></div><div class="line"><span class="regexp">		System.out.println("gulu gulu gulu");</span></div><div class="line"><span class="regexp">	&#125;</span></div><div class="line"><span class="regexp">	</span></div><div class="line"><span class="regexp">&#125;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">abstract class Car&#123;</span></div><div class="line"><span class="regexp">	Tyre tyre;</span></div><div class="line"><span class="regexp">/</span><span class="regexp">/	Window window;</span></div><div class="line"><span class="regexp">/</span><span class="regexp">/	Color color;</span></div><div class="line"><span class="regexp">/</span><span class="regexp">/	....</span></div><div class="line"><span class="regexp">	void carrunning() &#123;</span></div><div class="line"><span class="regexp">		tire.run();</span></div><div class="line"><span class="regexp">	&#125;</span></div><div class="line"><span class="regexp">&#125;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">class MyCar extends Car&#123;</span></div><div class="line"><span class="regexp">	MyCar()&#123;</span></div><div class="line"><span class="regexp">		this.tyre = new Rockettyre();</span></div><div class="line"><span class="regexp">	&#125;</span></div><div class="line"><span class="regexp">&#125;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">class YourCar extends Car &#123;</span></div><div class="line"><span class="regexp">	YourCar()&#123;</span></div><div class="line"><span class="regexp">		this.tyre = new Simpletyre();</span></div><div class="line"><span class="regexp">	&#125;</span></div><div class="line"><span class="regexp">&#125;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">public class Strategy &#123;</span></div><div class="line"><span class="regexp">	</span></div><div class="line"><span class="regexp">	</span></div><div class="line"><span class="regexp">	</span></div><div class="line"><span class="regexp">	</span></div><div class="line"><span class="regexp">	public static void main(String[] args) &#123;</span></div><div class="line"><span class="regexp">		/</span><span class="regexp">/ TODO Auto-generated method stub</span></div><div class="line"><span class="regexp">		Car car = new MyCar();</span></div><div class="line"><span class="regexp">		car.carrunning();</span></div><div class="line"><span class="regexp">		car = new YourCar();</span></div><div class="line"><span class="regexp">		car.carrunning();</span></div><div class="line"><span class="regexp">	&#125;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">&#125;</span></div></pre></td></tr></table></figure>
 <p>如上所示，我设计了一个车抽象类和一个轮胎抽象类，车类中包含了轮胎类父类，在车类的子类中通过实例化轮胎的子类，实现轮胎多态化，将算法的变化独立于算法的客户。这样做的好处第一点是在后期的修改，变化时，可以最小范围的修改，使得代码的弹性增强。第二点是，方便整理代码，代码结构显而易见。<br>附上类图一份。<br><img src="http://img.blog.csdn.net/20171026202856546?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvVzE4MTYyMzQ1ODU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>###总结一下：<br>策划模式是我们极为常见的模式之一，灵活运用多态思维，封装算法族。</p>
+<h3 id="总结一下："><a href="#总结一下：" class="headerlink" title="总结一下："></a>总结一下：</h3><p>策划模式是我们极为常见的模式之一，灵活运用多态思维，封装算法族。</p>
 
     </article>
     <!-- 前后页  -->
@@ -193,9 +192,9 @@
         
         
             <li class="previous">
-                <a href= "/2017/10/31/读书笔记---Head First 设计模式--- 装饰者模式/" title=  >
+                <a href= "/2017/10/31/读书笔记---Head First 设计模式--- 观察者模式/" title= 读书笔记---Head First 设计模式--- 观察者模式 >
                     <span>Previous Post</span>
-                    <span>[Untitled Post]</span>
+                    <span>读书笔记---Head First 设计模式--- 观察者模式</span>
                 </a>
             </li>
         
@@ -259,7 +258,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#读书笔记—Head-First-设计模式—-策略模式"><span class="toc-number">1.</span> <span class="toc-text">读书笔记—Head First 设计模式— 策略模式</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#读书笔记—Head-First-设计模式—-策略模式"><span class="toc-number">1.</span> <span class="toc-text">读书笔记—Head First 设计模式— 策略模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式"><span class="toc-number">1.0.1.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结一下："><span class="toc-number">1.0.2.</span> <span class="toc-text">总结一下：</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -300,7 +299,16 @@
     
     
     
-    <div class="total-archive"> Total : 3 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 4 </div>
     
     <div class="post-archive">
     
@@ -312,12 +320,17 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/31</span><a class="archive-post-title" href= "/2017/10/31/读书笔记---Head First 设计模式--- 策略模式/" >[Untitled Post]</a>
+            <span class="archive-post-date">10/31</span><a class="archive-post-title" href= "/2017/10/31/读书笔记---Head First 设计模式--- 策略模式/" >读书笔记---Head First 设计模式--- 策略模式</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/31</span><a class="archive-post-title" href= "/2017/10/31/读书笔记---Head First 设计模式--- 装饰者模式/" >[Untitled Post]</a>
+            <span class="archive-post-date">10/31</span><a class="archive-post-title" href= "/2017/10/31/读书笔记---Head First 设计模式--- 装饰者模式/" >读书笔记---Head First 设计模式--- 装饰者模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span><a class="archive-post-title" href= "/2017/10/31/读书笔记---Head First 设计模式--- 观察者模式/" >读书笔记---Head First 设计模式--- 观察者模式</a>
         </li>
     
     

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        黑山有清水的小屋
+        读书笔记---Head First 设计模式--- 观察者模式 · 黑山有清水的小屋
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >黑山有清水的小屋.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">读书笔记---Head First 设计模式--- 观察者模式</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>黑山有清水的小屋.</a>
 </header>
@@ -62,21 +73,37 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            读书笔记---Head First 设计模式--- 观察者模式
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/10/31</span>
+            </div>
         
     </div>
 </div>
@@ -144,117 +171,49 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/31/读书笔记---Head First 设计模式--- 策略模式/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>读书笔记---Head First 设计模式--- 策略模式</span>
-                    </h2>
-                <div class="abstract-content">
-                    读书笔记—Head First 设计模式— 策略模式   这几天买了本新书叫Head First设计模式。感觉还不错，可以看的进去，这就开个博客整理一下书里的内容。
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="读书笔记—Head-First-设计模式—-观察者模式"><a href="#读书笔记—Head-First-设计模式—-观察者模式" class="headerlink" title="读书笔记—Head First 设计模式— 观察者模式"></a><strong>读书笔记—Head First 设计模式— 观察者模式</strong></h1><h3 id="观察者模式（Observer）"><a href="#观察者模式（Observer）" class="headerlink" title="观察者模式（Observer）"></a>观察者模式（Observer）</h3><hr>
+<blockquote>
+<p>观察者模式——定义了对象之间的一对多依赖，这样一来，当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。 </p>
+</blockquote>
+<hr>
+<p>书上举出了一个公式：<strong>观察者模式 = 出版者（主题） + 订阅者（观察者）</strong>，很浅显易懂，一个发送信息，一个接受信息。先实现观察者和被观察者接口，主题类接上被观察者接口，观察者接上观察者接口，利用松耦合方式结合，可观察者只知道观察者实现了观察者接口。被观察者类中实现添加观察者，去除观察者，和刷新数据接口。观察者从构造函数中传递主题类，进行注册。然后主题类就可以快速方便的完成数据传递。<br>不多说，上代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">import java.util.ArrayList;</div><div class="line">interface Show&#123;</div><div class="line">	void show(String text);</div><div class="line">&#125;</div><div class="line">interface Observer&#123;</div><div class="line">	void update(String text);</div><div class="line">&#125;</div><div class="line"></div><div class="line">interface Observable&#123;</div><div class="line">	void registerObserver(Observer o);</div><div class="line">	void removeObserver(Observer o);</div><div class="line">	void notifyObservers();</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Myclass implements Observable&#123;</div><div class="line">	ArrayList&lt;Observer&gt; students;</div><div class="line">	public Myclass() &#123;</div><div class="line">		// TODO Auto-generated constructor stub</div><div class="line">		students = new ArrayList&lt;&gt;();</div><div class="line">	&#125;</div><div class="line">	@Override</div><div class="line">	public void registerObserver(Observer o) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		this.students.add(o);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void removeObserver(Observer o) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		int i = students.indexOf(o);</div><div class="line">		if(i &gt;= 0)</div><div class="line">			students.remove(i);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void notifyObservers() &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		for (int i = 0; i &lt; students.size(); i++) &#123;</div><div class="line">			students.get(i).update(String.valueOf(i+1));</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Me implements Observer,Show &#123;</div><div class="line">	Observable myObservable;</div><div class="line">	Me(Observable o)&#123;</div><div class="line">		myObservable = o;</div><div class="line">		myObservable.registerObserver(this);</div><div class="line">	&#125;</div><div class="line">	@Override</div><div class="line">	public void update(String text) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		show(text);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void show(String text) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		System.out.println(&quot;我是第&quot;+text+&quot;个&quot;);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Observers &#123;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		Observable myClass = new Myclass();</div><div class="line">		Observer me = new Me(myClass);</div><div class="line">		myClass.notifyObservers();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我设计了三个接口：Observer接口，Observable接口和Show接口，前面两个接口主要是为了说明观察者模式的设计思路，后面Show接口则是为了体现JAVA的多接口，单继承。使用接口可以更显的快捷。</p>
+<p>不多说，直接上图。<br><img src="http://img.blog.csdn.net/20171028000901643?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvVzE4MTYyMzQ1ODU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>偷个懒，不懂的评论见</p>
 
-稍微介绍一下这本书，我还没有看完，按照我的理解这本书主要讲的是关于类的设计，它没有按照一般教材书那样中规中矩的展现知识，而是用一种引导的方式慢慢的让你理解它的知识。好处是当你刚开始学的时候，会很方便给你理解，但是到你重复学习的时候，可能就会有一丝厌烦了。关于书的信息就介绍到这里，让我来进入正题。
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2017/10/31/读书笔记---Head First 设计模式--- 策略模式/" title= 读书笔记---Head First 设计模式--- 策略模式 >
+                    <span>Next Post</span>
+                    <span>读书笔记---Head First 设计模式--- 策略模式</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2017/10/31/读书笔记---Head First 设计模式--- 装饰者模式/" title= 读书笔记---Head First 设计模式--- 装饰者模式 >
+                    <span>Previous Post</span>
+                    <span>读书笔记---Head First 设计模式--- 装饰者模式</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
 
-策略模式
-策略模式——定义算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户。
-
-正如上面所...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/31</span>
-                </div>
-            </div>
-        </article>
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/31/读书笔记---Head First 设计模式--- 观察者模式/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>读书笔记---Head First 设计模式--- 观察者模式</span>
-                    </h2>
-                <div class="abstract-content">
-                    读书笔记—Head First 设计模式— 观察者模式观察者模式（Observer）
+    <!--PC版-->
 
-观察者模式——定义了对象之间的一对多依赖，这样一来，当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。 
+    <!--PC版-->
 
 
-书上举出了一个公式：观察者模式 = 出版者（主题） + 订阅者（观察者），很浅显易懂，一个发送信息，一个接受信息。先实现观察者和被观察者接口，主题类接上被观察者接口，观察者接上观察者接口，利用松耦合方式结合，可观察者只知道观察者实现了观察者接口。被观察者类中实现添加观察者，去除观察者，和刷新数据接口。观察者从构造函数中传递主题类，进行注册。然后主题类就可以快速方便的完成数据传递。不多...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/31</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/31/读书笔记---Head First 设计模式--- 装饰者模式/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>读书笔记---Head First 设计模式--- 装饰者模式</span>
-                    </h2>
-                <div class="abstract-content">
-                    读书笔记—Head First 设计模式— 装饰者模式装饰者模式（Decorator Pattern）
-装饰者模式——动态地将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有弹性的替代方案。
-
-所谓装饰者模式，包含两个对象，一个为装饰者，一个为被装饰者。装饰者、被装饰者拥有相同的父类，装饰者通过构造函数获取被装饰者的对象并在被装饰者的基础上重新修饰它，再将自己赋给需要的用户。利用此模式层层包含以达到多级修饰的效果。好，下面上代码。
-1234567891011121314151617181920212223242526272829303132333435363738394041424...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/31</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/30/hello-world/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Hello World</span>
-                    </h2>
-                <div class="abstract-content">
-                    Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/30</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
     
 </main>
             <!-- profile -->
@@ -298,6 +257,13 @@ More...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#读书笔记—Head-First-设计模式—-观察者模式"><span class="toc-number">1.</span> <span class="toc-text">读书笔记—Head First 设计模式— 观察者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者模式（Observer）"><span class="toc-number">1.0.1.</span> <span class="toc-text">观察者模式（Observer）</span></a></li></ol></li></ol></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">
