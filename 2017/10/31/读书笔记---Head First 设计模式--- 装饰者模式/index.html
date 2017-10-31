@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        Hello World · 黑山有清水的小屋
+        黑山有清水的小屋
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -63,7 +63,7 @@
                 <a href="/" >黑山有清水的小屋.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Hello World</a>
+                <a href="#" class="post-name"></a>
             </div>
     </div>
     
@@ -84,7 +84,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Hello World
+            [Untitled Post]
             <!-- 404 -->
             
         </h1>
@@ -102,7 +102,7 @@
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/10/30</span>
+                <span class="post-intro-time">2017/10/31</span>
             </div>
         
     </div>
@@ -173,27 +173,34 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h1 id="读书笔记—Head-First-设计模式—-装饰者模式"><a href="#读书笔记—Head-First-设计模式—-装饰者模式" class="headerlink" title="读书笔记—Head First 设计模式— 装饰者模式"></a><strong>读书笔记—Head First 设计模式— 装饰者模式</strong></h1><p>###装饰者模式（Decorator Pattern）</p>
+<blockquote>
+<p>装饰者模式——动态地将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有弹性的替代方案。</p>
+</blockquote>
+<p>所谓装饰者模式，包含两个对象，一个为装饰者，一个为被装饰者。装饰者、被装饰者拥有相同的父类，装饰者通过构造函数获取被装饰者的对象并在被装饰者的基础上重新修饰它，再将自己赋给需要的用户。利用此模式层层包含以达到多级修饰的效果。<br>好，下面上代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">import java.util.ArrayList;</div><div class="line"></div><div class="line">abstract class Food &#123;</div><div class="line">	ArrayList&lt;String&gt; fdName;</div><div class="line">	ArrayList&lt;String&gt; getfdDescription() &#123;</div><div class="line">		return fdName;</div><div class="line">	&#125;</div><div class="line">	abstract double cast();</div><div class="line">&#125;</div><div class="line"></div><div class="line">abstract class supplementaryFood extends Food&#123;</div><div class="line">	abstract ArrayList&lt;String&gt; getfdDescription();</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Rice extends Food &#123;</div><div class="line">	</div><div class="line">	public Rice() &#123;</div><div class="line">		// TODO Auto-generated constructor stub</div><div class="line">		ArrayList&lt;String&gt; a = new ArrayList&lt;String&gt;();</div><div class="line">		a.add(&quot;Rice&quot;);</div><div class="line">		this.fdName = a;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	@Override</div><div class="line">	double cast() &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		return 1;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Eggs extends supplementaryFood &#123;</div><div class="line">	Food food;</div><div class="line">	Eggs(Food food)&#123;</div><div class="line">		this.food = food;</div><div class="line">	&#125;</div><div class="line">	@Override</div><div class="line">	ArrayList&lt;String&gt; getfdDescription() &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		this.fdName = food.getfdDescription();</div><div class="line">		this.fdName.add(&quot;eggs&quot;);</div><div class="line">		return this.fdName;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	double cast() &#123;</div><div class="line">		return 2 + food.cast();</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">public class Decorator &#123;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		Food myFood;</div><div class="line">		myFood = new Rice();</div><div class="line">		System.out.println(myFood.getfdDescription()+&quot; &quot;+myFood.cast());</div><div class="line">		myFood = new Eggs(myFood);</div><div class="line">		System.out.println(myFood.getfdDescription()+&quot; &quot;+myFood.cast());		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我设计了一个共同的父类Food类，并设计了它的子类抽象类副食类（supplementaryFood）通过利用特有的副食类型来修饰Food类型的食物，我设计的例子不是一个特别好的例子，纯粹是为了展示装饰者模式的用法。<br>其中有一点要说的是，我将他们食物的名字用一个ArrayList存放，虽然我这次写的类中并没有特别去展现它的意思，这主要是为了在之后的使用中方便去管理食物的名字，检测是否有重复可以变成Double，如果要改变输出格式也会更方便一些。</p>
+<p>我这次所写的装饰者模式在真正的使用中会存在两个问题，一是设计类时如何分类，二是大量的小类如何管理。我认为如果我来用的话肯定不会单纯的只用装饰者模式而是与其他模式相结合的使用。</p>
+<p>我在设计模式这方面还很年轻，如果以后有新的理解会返回来及时更新滴。<br>附上类图一副。<br><img src="http://img.blog.csdn.net/20171030002213566?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvVzE4MTYyMzQ1ODU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
             <li class="next">
-                <a href= "/2017/10/31/读书笔记---Head First 设计模式--- 装饰者模式/" title=  >
+                <a href= "/2017/10/31/读书笔记---Head First 设计模式--- 策略模式/" title=  >
                     <span>Next Post</span>
                     <span>[Untitled Post]</span>
                 </a>
             </li>
         
+        
+            <li class="previous">
+                <a href= "/2017/10/30/hello-world/" title= Hello World >
+                    <span>Previous Post</span>
+                    <span>Hello World</span>
+                </a>
+            </li>
         
     </ul>
     <!-- 评论插件 -->
@@ -255,7 +262,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#读书笔记—Head-First-设计模式—-装饰者模式"><span class="toc-number">1.</span> <span class="toc-text">读书笔记—Head First 设计模式— 装饰者模式</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
